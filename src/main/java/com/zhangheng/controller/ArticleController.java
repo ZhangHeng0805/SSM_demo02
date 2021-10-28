@@ -49,7 +49,7 @@ public class ArticleController {
                         msg.setTime(TimeUtil.time(new Date()));
                         msg.setCode(200);
                         msg.setTitle("成功");
-                        msg.setMessage("《" + article.getTitle() + "》发布成功！<a href=\\\"/main\\\">去首页</a>");
+                        msg.setMessage("《" + article.getTitle() + "》发布成功！<a href=\"/main\">去首页</a>");
                     } else {
                         msg.setTime(TimeUtil.time(new Date()));
                         msg.setCode(500);
