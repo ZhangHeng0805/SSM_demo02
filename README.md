@@ -31,7 +31,7 @@
 ![image](https://user-images.githubusercontent.com/74289276/139248739-5d6dba5a-7ca8-4cd7-8298-e79986dd29a3.png)
 
 ## 数据库
-```
+```sql
 /*
 Navicat MySQL Data Transfer
 
@@ -87,4 +87,4 @@ CREATE TABLE `t_user` (
   KEY `username` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
-```sql
+```
