@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhangheng.dao.ArticleDao">
+    <!--根据id查询客户-->
+   <insert id="addArticle" parameterType="com.zhangheng.po.Article" keyProperty="id" useGeneratedKeys="true">
+       <bind name="v_title" value="title"/>
+       <bind name="v_introduce" value="introduce"/>
+       <bind name="v_content" value="content"/>
+       insert into t_article (title,author,authorId,time,num,state,introduce,content)
+       value (#{v_title},#{author},#{authorId},#{time},#{num},#{state},#{v_introduce},#{v_content})
+   </insert>
+    <select id="findArticleAll" resultType="article">
+        select * from t_article
+    </select>
+    <select id="findArticleById" parameterType="Integer" resultType="article">
+        select * from t_article where id = #{id}
+    </select>
+    <select id="findArticleByAuthorId" parameterType="Integer" resultType="article">
+        select * from t_article where authorId = #{authorId}
+    </select>
+    <update id="addOneNum" parameterType="Integer">
+        update t_article set
+            num = num + 1
+        where id = #{id}
+    </update>
+    <update id="updateArticleById" parameterType="article">
+        <bind name="v_title" value="title"/>
+        <bind name="v_state" value="state"/>
+        <bind name="v_introduce" value="introduce"/>
+        <bind name="v_content" value="content"/>
+        update t_article set
+            title = #{v_title},
+            time = #{time},
+            state = #{v_state},
+            introduce = #{v_introduce},
+            content = #{v_content}
+        where id = #{id}
+    </update>
+    <delete id="deleteArticleById" parameterType="Integer">
+        delete from t_article where id = #{id}
+    </delete>
+</mapper>

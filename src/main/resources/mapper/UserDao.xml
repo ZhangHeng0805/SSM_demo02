@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhangheng.dao.UserDao">
+    <!--根据id查询客户-->
+   <insert id="addUser" parameterType="com.zhangheng.po.User" keyProperty="id" useGeneratedKeys="true">
+       <bind name="v-username" value="username"/>
+       <bind name="v-introduction" value="introduction"/>
+       insert into t_user (username,sex,phonenum,password,introduction,registrationTime,modifyTime)
+       value (#{v-username},#{sex},#{phonenum},#{password},#{v-introduction},#{registrationTime},#{modifyTime})
+   </insert>
+    <select id="findUserByPhonenum" parameterType="String" resultType="user">
+        select * from t_user where phonenum = #{phonenum}
+    </select>
+    <select id="findUserById" parameterType="Integer" resultType="user">
+        select * from t_user where id = #{id}
+    </select>
+</mapper>
